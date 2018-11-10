@@ -10,13 +10,11 @@ wget -qO - 'http://archive.neon.kde.org/public.key' | apt-key add -
 ### Install Dependencies
 apt-get --yes update
 apt-get --yes dist-upgrade
-apt-get --yes install devscripts lintian build-essential automake autotools-dev equivs
+apt-get --yes install devscripts lintian build-essential automake autotools-dev equivs qt5-default qtdeclarative5-dev
 mk-build-deps -i -t "apt-get --yes" -r
 
 ### Build Deb
-#mkdir source
-#mv ./* source/ # Hack for debuild
-#cd source
-#debuild -b -uc -us
-cd src
-qmake && make
+mkdir source
+mv ./* source/ # Hack for debuild
+cd source
+debuild -b -uc -us
