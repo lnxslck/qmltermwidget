@@ -20,4 +20,3 @@ mk-build-deps -i -t "apt-get --yes" -r
 #debuild -b -uc -us
 cd src
 qmake && make
-debuild -b -uc -us
